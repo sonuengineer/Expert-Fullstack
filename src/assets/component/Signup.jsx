@@ -17,8 +17,17 @@ function Signup() {
 
   const handleSignup = (e) => {
     e.preventDefault();
+  // Retrieve existing user data
+  const existingUserData = localStorage.getItem('userData') || '[]';
+  const userDataArray = JSON.parse(existingUserData);
+
+  // Add new user data to the array
+  userDataArray.push(userData);
+
+    // Store the updated user data in localStorage
+    localStorage.setItem('userData', JSON.stringify(userDataArray));
     // Store user data in local storage
-    localStorage.setItem('userData', JSON.stringify(userData));
+    //localStorage.setItem('userData', JSON.stringify(userData));
     alert('Signup successful!');
     // Redirect to login page
     window.location.href = '/login';
