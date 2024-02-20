@@ -10,6 +10,7 @@ import { useSelector , useDispatch} from 'react-redux';
 import {logout} from "../Redux/authActions"
 import {toggleBackgroundColor}  from "../Redux/authActions"
 import Rating from './Rating';
+import PinCode from './PinCode';
 
 function NavBar() {
   const { username, lastLogin } = useSelector((state) => state.auth);
@@ -57,6 +58,8 @@ function NavBar() {
         <button onClick={() => handleButtonClick('infiniteScroll')}>Infinite Scroll</button>
         <button onClick={() => handleButtonClick('faq')}>FAQ</button>
         <button onClick={() => handleButtonClick('Rating')}>Rating Button</button>
+        <button onClick={() => handleButtonClick('PinCode')}>Search your city</button>
+
       </div>
       <div style={{ ...contentStyle, backgroundColor }}>
         <h2>Welcome to the Navbar, {username || 'Guest'}!</h2>
@@ -73,6 +76,7 @@ function NavBar() {
           {activeComponent === 'infiniteScroll' && <InfiniteScroll />}
           {activeComponent === 'faq' && <FAQ />}
           {activeComponent === 'Rating' && <Rating />}
+          {activeComponent === 'PinCode' && <PinCode/>}
         </div>
       </div>
     </>
