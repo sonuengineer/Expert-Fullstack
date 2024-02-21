@@ -18,8 +18,12 @@ function Signup() {
   const handleSignup = (e) => {
     e.preventDefault();
   // Retrieve existing user data
-  const existingUserData = localStorage.getItem('userData') || '[]';
-  const userDataArray = JSON.parse(existingUserData);
+  // const existingUserData = localStorage.getItem('userData') || '[]';
+  // const userDataArray = JSON.parse(existingUserData);
+
+
+  const existingUserData = localStorage.getItem('userData');
+const userDataArray = existingUserData ? JSON.parse(existingUserData) : [];
 
   // Add new user data to the array
   userDataArray.push(userData);

@@ -49,6 +49,14 @@ function NavBar() {
     marginLeft: '220px', // Adjust as needed to leave space for the sidebar
     padding: '20px',
   };
+  const buttonContainerStyle = {
+    position: "fixed",
+    top: "10px",
+    right: "10px", // Adjust as needed for right corner
+    zIndex: 1000,
+    display: "flex",
+    flexDirection: "column",
+  };
 
   return (
     <>
@@ -68,8 +76,14 @@ function NavBar() {
             Last Login: {lastLogin.username} at {lastLogin.timestamp}
           </p>
         )}
-        <button onClick={handleColorToggle}>Change BG</button>
-        {username && <button onClick={handleLogout}>Logout</button>}
+        <div style={{ ...buttonContainerStyle }}>
+        {username && (
+          <>
+            <button onClick={handleColorToggle}>Change BG</button>
+            <button onClick={handleLogout}>Logout</button>
+          </>
+        )}
+      </div>
         <div>
           {activeComponent === 'pagination1' && <Pagination1 />}
           {activeComponent === 'paginationButton' && <PaginationButton />}
